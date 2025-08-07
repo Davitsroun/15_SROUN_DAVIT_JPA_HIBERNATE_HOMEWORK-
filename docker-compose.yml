@@ -1,0 +1,26 @@
+services:
+  jpa_db:
+    image: postgres:15
+    container_name: jpa_bd
+    environment:
+      POSTGRES_DB: jpa
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+    ports:
+      - "5433:5432"
+    volumes:
+      - jpa_volume:/var/lib/postgresql/data
+
+  spring:
+    container_name: spring_jpa_homework_2
+    build: .
+    depends_on:
+      - jpa_db
+    ports:
+      - "8081:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://jpa_db:5432/jpa
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 123
+volumes:
+  jpa_volume:

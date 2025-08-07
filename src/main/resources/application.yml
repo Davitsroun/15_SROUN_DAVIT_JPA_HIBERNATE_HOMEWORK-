@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: 15_SROUN_DAVIT_JPA_HIBERNATE_HOMEWORK
+  datasource:
+    url: jdbc:postgresql://localhost:5433/jpa
+    username: postgres
+    password: 123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
