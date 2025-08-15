@@ -25,4 +25,7 @@ public class Product {
     @Column(nullable = false)
     private Integer quantity;
 
+    public Product(long l, String laptop, double v) {
+
+    }
 }
